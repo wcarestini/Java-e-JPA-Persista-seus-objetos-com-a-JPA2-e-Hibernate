@@ -1,10 +1,9 @@
 package br.com.wagnercarestini.financas.jpa;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import br.com.wagnercarestini.financas.modelo.Conta;
+import br.com.wagnercarestini.financas.util.JPAUtil;
 
 public class TestJPA {
 
@@ -32,14 +31,12 @@ public class TestJPA {
 		/**
 		 * Usando MySQL
 		 */
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("contas-mysql");
-
-		EntityManager em = emf.createEntityManager();
+		EntityManager em = new JPAUtil().getEntityManager();
+		
 		em.getTransaction().begin();
-
 		em.persist(conta);
-
 		em.getTransaction().commit();
+		
 		em.close();
 	}
 }
