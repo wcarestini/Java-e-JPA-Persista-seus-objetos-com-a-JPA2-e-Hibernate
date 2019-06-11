@@ -27,4 +27,8 @@ public class Categoria {
 		this.nome = nome;
 	}
 	
+	public void setId(Integer id){
+		this.id = id;
+	}
+	
 }
